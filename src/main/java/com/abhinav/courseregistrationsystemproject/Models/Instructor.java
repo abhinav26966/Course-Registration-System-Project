@@ -1,6 +1,5 @@
 package com.abhinav.courseregistrationsystemproject.Models;
-import com.abhinav.courseregistrationsystemproject.Models.Course;
-import com.abhinav.courseregistrationsystemproject.Models.Department;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

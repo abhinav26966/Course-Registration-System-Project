@@ -1,8 +1,11 @@
 package com.abhinav.courseregistrationsystemproject.Exceptions;
 
+import lombok.Getter;
+
+@Getter
 public class AdminAbsent extends RuntimeException {
-    private Long id;
-    public AdminAbsent(Long id, String message) {
+    private final String id;
+    public AdminAbsent(String id, String message) {
         super(message);
         this.id = id;
     }

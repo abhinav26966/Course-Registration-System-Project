@@ -1,10 +1,7 @@
 package com.abhinav.courseregistrationsystemproject.ExceptionsHandler;
 
 import com.abhinav.courseregistrationsystemproject.DTOS.ExceptionsDTO;
-import com.abhinav.courseregistrationsystemproject.Exceptions.CourseAbsent;
-import com.abhinav.courseregistrationsystemproject.Exceptions.DepartmentAbsent;
-import com.abhinav.courseregistrationsystemproject.Exceptions.InvalidRequest;
-import com.abhinav.courseregistrationsystemproject.Exceptions.StudentAbsent;
+import com.abhinav.courseregistrationsystemproject.Exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,7 +18,7 @@ public class UniversalExceptionHandler {
         return responseEntity;
     }
     @ExceptionHandler(DepartmentAbsent.class)
-    public ResponseEntity<ExceptionsDTO> handleDepartmentNotFoundException(DepartmentAbsent departmentNotFoundException){
+    public ResponseEntity<ExceptionsDTO> handleDepartmentAbsent(DepartmentAbsent departmentNotFoundException){
         ExceptionsDTO exceptionDto = new ExceptionsDTO();
         exceptionDto.setMessage("Department Id" + departmentNotFoundException.getId()+"is Invalid");
         exceptionDto.setResolution("Provide valid Course ic");
@@ -33,6 +30,14 @@ public class UniversalExceptionHandler {
         ExceptionsDTO exceptionDto = new ExceptionsDTO();
         exceptionDto.setMessage("Student Id" + studentNotFoundException.getId()+"is Invalid");
         exceptionDto.setResolution("Provide valid Course ic");
+        ResponseEntity<ExceptionsDTO> responseEntity = new ResponseEntity<>(exceptionDto, HttpStatus.NOT_FOUND);
+        return responseEntity;
+    }
+    @ExceptionHandler(AdminAbsent.class)
+    public ResponseEntity<ExceptionsDTO> handleAdminNotFound(AdminAbsent AdminNotFound){
+        ExceptionsDTO exceptionDto = new ExceptionsDTO();
+        exceptionDto.setMessage("Admin username " + AdminNotFound.getId()+" or Password is Invalid");
+        exceptionDto.setResolution("Provide valid admin username or Password");
         ResponseEntity<ExceptionsDTO> responseEntity = new ResponseEntity<>(exceptionDto, HttpStatus.NOT_FOUND);
         return responseEntity;
     }

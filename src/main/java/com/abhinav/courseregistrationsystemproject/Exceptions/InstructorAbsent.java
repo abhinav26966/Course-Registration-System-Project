@@ -1,7 +1,12 @@
 package com.abhinav.courseregistrationsystemproject.Exceptions;
 
-public class InstructorAbsent extends RuntimeException {
-    public InstructorAbsent(Long id, String message) {
-        super(message);
+import lombok.Getter;
+
+@Getter
+public class InstructorAbsent extends RuntimeException{
+    private final Long id;
+    public InstructorAbsent(Long id, String str){
+        super(str);
+        this.id = id;
     }
 }

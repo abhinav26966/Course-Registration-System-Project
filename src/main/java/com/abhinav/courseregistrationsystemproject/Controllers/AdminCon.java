@@ -2,12 +2,13 @@ package com.abhinav.courseregistrationsystemproject.Controllers;
 import com.abhinav.courseregistrationsystemproject.DTOS.AdminRequestDTO;
 import com.abhinav.courseregistrationsystemproject.DTOS.AdminResponseDTO;
 import com.abhinav.courseregistrationsystemproject.Services.AdminServ;
+import com.abhinav.courseregistrationsystemproject.Services.AdminServInt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminCon {
-    private final AdminServ adminService;
+    private final AdminServInt adminService;
     public AdminCon(AdminServ adminService) {
         this.adminService = adminService;
     }
@@ -27,7 +28,7 @@ public class AdminCon {
     }
 
     @GetMapping("/{id}")
-    public AdminResponseDTO getAdmin(@PathVariable Long id) {
-        return adminService.getAdmin(id);
+    public AdminResponseDTO getAdmin(@PathVariable String username) {
+        return adminService.getAdmin(Long.valueOf(username));
     }
 }

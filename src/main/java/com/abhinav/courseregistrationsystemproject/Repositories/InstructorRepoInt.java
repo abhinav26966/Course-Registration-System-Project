@@ -1,4 +1,5 @@
 package com.abhinav.courseregistrationsystemproject.Repositories;
+
 import com.abhinav.courseregistrationsystemproject.Models.Instructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

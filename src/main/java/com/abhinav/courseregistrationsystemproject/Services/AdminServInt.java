@@ -11,5 +11,5 @@ public interface AdminServInt {
 
     public void deleteAdmin(@RequestBody AdminRequestDTO admin);
 
-    public AdminResponseDTO getAdmin(@PathVariable Long id);
+    public AdminResponseDTO getAdmin(@PathVariable String username);
 }

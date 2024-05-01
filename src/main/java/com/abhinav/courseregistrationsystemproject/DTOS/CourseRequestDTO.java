@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class CourseRequestDTO {
+public class CourseRequestDTO{
     private Long courseId;
     private String name;
     private String description;
@@ -14,4 +14,12 @@ public class CourseRequestDTO {
     private Long departmentId;
     private String adminUsername;
     private String password;
+
+    public boolean check(){
+        return this.name != null && !this.name.isEmpty() &&
+                this.adminUsername != null && !this.adminUsername.isEmpty() &&
+                this.description != null && !this.description.isEmpty() &&
+                this.password != null && this.departmentId != null && this.credits > 0 &&
+                this.departmentId > 0 && !this.password.isEmpty();
+    }
 }
