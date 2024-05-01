@@ -29,6 +29,6 @@ public class AdminCon {
 
     @GetMapping("/{id}")
     public AdminResponseDTO getAdmin(@PathVariable String username) {
-        return adminService.getAdmin(Long.valueOf(username));
+        return adminService.getAdmin(username);
     }
 }
